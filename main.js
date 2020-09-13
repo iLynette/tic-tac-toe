@@ -6,7 +6,9 @@ function setMessage(msg) {
   document.getElementById("message").innerText = msg;
 }
 function nextMove(square) {
-  if(square.innerText == ''){
+  if (document.winner != null) {
+    setMessage(document.turn + " already won.")
+  }else if(square.innerText == ''){
     square.innerText = document.turn;
   switchTurn();
   } else {
@@ -17,6 +19,7 @@ function nextMove(square) {
 function switchTurn() {
   if(checkForWinner(document.turn)) {
     setMessage("congrats " + document.turn + ", you won!")
+    document.winner = document.turn
   }else if(document.turn == "x") {
     document.turn = "o";
     setMessage("it's " + document.turn + "'s turn")
