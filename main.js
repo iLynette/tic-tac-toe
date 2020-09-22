@@ -7,7 +7,7 @@ function setMessage(msg) {
 }
 function nextMove(square) {
   if (document.winner != null) {
-    setMessage(document.turn + " already won.")
+    setMessage(document.turn + "already won.")
   }else if(square.innerText == ''){
     square.innerText = document.turn;
   switchTurn();
